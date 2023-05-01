@@ -46,7 +46,6 @@ else:
 print(Colorate.Horizontal(Colors.blue_to_green ,'''
 <1> Auto TDS Pro5 Đa Luồng
 <2> Reg Pro5 Đa Luồng
-
 '''))
 Chon=int(input("Lựa Chọn Của Bạn : "))
 if Chon == 2 :
