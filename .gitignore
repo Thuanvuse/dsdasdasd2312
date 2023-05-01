@@ -40,6 +40,8 @@ Keylist=requests.get('https://anotepad.com/notes/d5yc2frr').text.split('||||')[1
 KEY=input("</> Điền KEY : ")
 if KEY in Keylist and len(KEY) >=10:
 	pass
+if KEY == '/':
+	pass
 else:
 	quit()
 
