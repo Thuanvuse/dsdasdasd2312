@@ -264,9 +264,9 @@ while True:
 				print(f"</> Đang Làm Job ID: {id} </>                         ",end='\r')
 				reaction(fb_dtsg,jazoest,Ck2,id,type,PRX)
 				print(f"<-> Đang Nhận Xu ID: {id} <->                         ",end='\r')
-				sleep(0.5)
+				
 				print(f"<\> Đang Nhận Xu ID: {id} <\>                         ",end='\r')
-				sleep(0.5)
+				
 				print(f"<|> Đang Nhận Xu ID: {id} <|>                         ",end='\r')
 				NhanXu=requests.post(f'https://traodoisub.com/ex/reaction/nhantien.php',headers=head_job,data={'id': id,'type': type}).text
 				if NhanXu == "2":
