@@ -7,7 +7,7 @@ import os,time,re,json,random
 from datetime import datetime
 from time import sleep,strftime
 import requests
-proxy=input("Proxy : ")
+sopagemountao=int(input('[T]> Số Page Muốn Tạo Trên Mỗi FB : '))
 def Reg(cookies,fb_dtsg,name,proxy):
 	if proxy.count(":") == 3:
 		pr = proxy.split(":")
@@ -112,33 +112,42 @@ def UpAVT(cookiesFB,fb_dtsgFB,idpro5):
 	response = requests.post('https://www.facebook.com/api/graphql/', headers=fheaders, data=datas) 
 	print("Up Ảnh Thành Công                           ",end='\r')
 	print(dem,f'> Thành Công ID: {idpro5}')
-
-cookiesFB=input("Điền Cookie FB Cần Reg :")
-print("ĐANG KIỂM TRA COOKIE ......",end='\r')
-
-headers = {
-	'authority': 'www.facebook.com',
-	'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-	'accept-language': 'vi',
-	'cookie': cookiesFB,
-	'sec-ch-prefers-color-scheme': 'light',
-	'sec-ch-ua': '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
-	'sec-ch-ua-mobile': '?0',
-	'sec-ch-ua-platform': '"Windows"',
-	'sec-fetch-dest': 'document',
-	'sec-fetch-mode': 'navigate',
-	'sec-fetch-site': 'none',
-	'sec-fetch-user': '?1',
-	'upgrade-insecure-requests': '1',
-	'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
-	'viewport-width': '1366',
-}
-url_profile = requests.get('https://www.facebook.com/me', headers=headers).url
-profile = requests.get(url_profile, headers=headers).text
-try:
-	fb_dtsgFB = profile.split('{"name":"fb_dtsg","value":"')[1].split('"},')[0]
-except:
-	fb_dtsgFB = profile.split(',"f":"')[1].split('","l":null}')[0]
+ListALL=[]
+stt=0
+while True:
+	stt+=1
+	cookiesFB=input(f"Điền Cookie FB Cần Reg {stt} :")
+	if len(cookiesFB) > 10 :
+		proxy=input(f"Proxy {stt} : ")
+		print("ĐANG KIỂM TRA COOKIE ......",end='\r')
+		headers = {
+			'authority': 'www.facebook.com',
+			'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+			'accept-language': 'vi',
+			'cookie': cookiesFB,
+			'sec-ch-prefers-color-scheme': 'light',
+			'sec-ch-ua': '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
+			'sec-ch-ua-mobile': '?0',
+			'sec-ch-ua-platform': '"Windows"',
+			'sec-fetch-dest': 'document',
+			'sec-fetch-mode': 'navigate',
+			'sec-fetch-site': 'none',
+			'sec-fetch-user': '?1',
+			'upgrade-insecure-requests': '1',
+			'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
+			'viewport-width': '1366',
+		}
+		url_profile = requests.get('https://www.facebook.com/me', headers=headers).url
+		profile = requests.get(url_profile, headers=headers).text
+		try:
+			fb_dtsgFB = profile.split('{"name":"fb_dtsg","value":"')[1].split('"},')[0]
+		except:
+			fb_dtsgFB = profile.split(',"f":"')[1].split('","l":null}')[0]
+		AE=f'{fb_dtsgFB}|{cookiesFB}|{proxy}'
+		ListALL.append(AE)
+		print("Thành Công ! ")
+	else:
+		break
 
 dem = 0
 print('                                               ',end='\r')
@@ -151,21 +160,29 @@ def delay(dl):
 
    	sleep(1)
 mylist = ["101706786252767", "117567931316862", "101613956262598"]
-while True:
-	try:
-		IDANH=random.choice(mylist)
-		arraylot = ["Công", "Đức", "Duy", "Gia", "Anh", "Hồng", "Đinh", "Quốc", "Quỳnh","Vĩnh"]
-		arrayten = ["Hưng","Anh", "Văn", "Tuấn", "Hoàng", "Quốc", "Năm", "Giang", "Khang", "Dương", "Phúc", "Thiên", "Hùng", "Kiệt", "Châu", "Quỳnh", "huệ", "Tuấn", "Khánh", "Trân", "Yên", "Lợi", "Danh", "Vinh", "Nhi", "Nhí", "Quốc", "Anh", "Danh", "Hân", "Giang","Phán"]
-		ho = 'ThuanCoder2006'
-		lot = random.choice(arraylot)
-		ten = random.choice(arrayten)
-		name = str(ho+' '+lot+' '+ten)
-		dem = dem+1
-		cookiesPro5,fb_dtsgPro5=Reg(cookiesFB,fb_dtsgFB,name,proxy)
-		idpro5=cookiesPro5.split('i_user=')[1].split(";")[0]
-		UpAVT(cookiesFB,fb_dtsgFB,idpro5)
-	except:
-		print("Acc Bị Chặn Tạo Pro5")
-		quit()
-	delay(dl);
+sttchay=0
+for Text in ListALL:
+	sttchay+=1
+	print(f"Bắt Đầu Reg Acc {sttchay}")
+
+	proxy=Text.split("|")[2]
+	cookiesFB=Text.split("|")[1]
+	fb_dtsgFB=Text.split("|")[0]
+	for i in range(sopagemountao):
+		try:
+			IDANH=random.choice(mylist)
+			arraylot = ["Công", "Đức", "Duy", "Gia", "Anh", "Hồng", "Đinh", "Quốc", "Quỳnh","Vĩnh"]
+			arrayten = ["Hưng","Anh", "Văn", "Tuấn", "Hoàng", "Quốc", "Năm", "Giang", "Khang", "Dương", "Phúc", "Thiên", "Hùng", "Kiệt", "Châu", "Quỳnh", "huệ", "Tuấn", "Khánh", "Trân", "Yên", "Lợi", "Danh", "Vinh", "Nhi", "Nhí", "Quốc", "Anh", "Danh", "Hân", "Giang","Phán"]
+			ho = 'ThuanCoder2006'
+			lot = random.choice(arraylot)
+			ten = random.choice(arrayten)
+			name = str(ho+' '+lot+' '+ten)
+			dem = dem+1
+			cookiesPro5,fb_dtsgPro5=Reg(cookiesFB,fb_dtsgFB,name,proxy)
+			idpro5=cookiesPro5.split('i_user=')[1].split(";")[0]
+			UpAVT(cookiesFB,fb_dtsgFB,idpro5)
+		except:
+			print(f"Acc {sttchay} Bị Chặn Tạo Pro5")
+			break
+		delay(dl);
 		
