@@ -1,4 +1,6 @@
-
+os.system('cls')
+os.system('clear')
+os.system('cls')
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 print(Colorate.Horizontal(Colors.blue_to_green ,f'''
 ████████╗██╗  ██╗██╗   ██╗ █████╗ ███╗   ██╗    ████████╗ ██████╗  ██████╗ ██╗     
