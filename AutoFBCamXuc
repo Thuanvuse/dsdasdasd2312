@@ -246,7 +246,7 @@ while True:
 					type=x['type']
 					print(f"                                                      ",end='\r')
 					print(f"</> Đang Làm Job ID: {id} </>                         ",end='\r')
-					#reaction(fb_dtsg,jazoest,Ck2,id,type,PRX)
+					reaction(fb_dtsg,jazoest,Ck2,id,type,PRX)
 					print(f"<-> Đang Nhận Xu ID: {id} <->                         ",end='\r')
 					
 					print(f"<\> Đang Nhận Xu ID: {id} <\>                         ",end='\r')
