@@ -173,10 +173,10 @@ for Text in ListALL:
 			IDANH=random.choice(mylist)
 			arraylot = ["Công", "Đức", "Duy", "Gia", "Anh", "Hồng", "Đinh", "Quốc", "Quỳnh","Vĩnh"]
 			arrayten = ["Hưng","Anh", "Văn", "Tuấn", "Hoàng", "Quốc", "Năm", "Giang", "Khang", "Dương", "Phúc", "Thiên", "Hùng", "Kiệt", "Châu", "Quỳnh", "huệ", "Tuấn", "Khánh", "Trân", "Yên", "Lợi", "Danh", "Vinh", "Nhi", "Nhí", "Quốc", "Anh", "Danh", "Hân", "Giang","Phán"]
-			ho = 'ThuanCoder2006'
+			
 			lot = random.choice(arraylot)
 			ten = random.choice(arrayten)
-			name = str(ho+' '+lot+' '+ten)
+			name = str(lot+' '+ten)
 			dem = dem+1
 			cookiesPro5,fb_dtsgPro5=Reg(cookiesFB,fb_dtsgFB,name,proxy)
 			idpro5=cookiesPro5.split('i_user=')[1].split(";")[0]
