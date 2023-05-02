@@ -24,11 +24,16 @@ print(Colorate.Horizontal(Colors.blue_to_green ,f'''
 
 
 									ZALO    : 0399136405
+									YTB     : https://www.youtube.com/@TTNVN7144
 									FB      : fb.com/uysotin
+									BoxZalo : Chưa Có
+									KEY     : Inbox Trực Tiếp Để Gia Hạn Key
 									MB Bank : 8829032006 (Đúng Số AE Tránh Bị Lừa)
 									Nhận Làm Tool Theo Yêu Cầu Giá Siêu Rẻ !
+									Bản v0.0.4 - Cập Nhật 4h40p 2/5/2023
 
 '''))
+
 
 
 def GetTDS(tk,mk):
