@@ -257,16 +257,16 @@ while True:
 					else:
 						sttloi+=1
 						print(f"[T] > Lỗi {sttloi} JOB",end='\r')
-						if sttloi >= 5:
+						if sttloi >= 15:
 							idfb=Ck2.split('i_user=')[1].split(";")[0]
 							ALLINPUT.remove(ALLINPUT[XYZ])
 							print(f"[T] > ID :{idfb} Đã Bị Nhả Tương Tác Đã Xóa Bỏ Khỏi Danh Sách Chạy Còn : {len(ALLINPUT)} Pro5")
 
 							break
 			except:
-				if sttloi >= 5:break
-			if sttloi >= 5:break
-		if sttloi >= 5 and loithidung == 1:break
+				if sttloi >= 15:break
+			if sttloi >= 15:break
+		if sttloi >= 15 and loithidung == 1:break
 	else:
 		print("=====================================================")
 		print("[T] > Tất Cả Pro5 Đã Không Thể Thả Cảm Xúc Tool Dừng")
