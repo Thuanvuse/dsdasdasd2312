@@ -47,7 +47,7 @@ else:
 	quit()
 
 
-print(Colorate.Horizontal(Colors.blue_to_green ,'-----------------------------------\n <1> : Auto TDS Pro5 Đa Luồng\n <2> : Reg Pro5 Đa Luồng\n-----------------------------------'))
+print(Colorate.Horizontal(Colors.blue_to_green ,'-----------------------------------\n <1> : Auto TDS Pro5 Đa Luồng\n <2> : Reg Pro5 Đa Luồng (Bảo Trì)\n-----------------------------------'))
 Chon=int(input("Lựa Chọn Của Bạn : "))
 if Chon == 2 :
 	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/TaoPro5').text)
