@@ -185,4 +185,4 @@ for Text in ListALL:
 			print(f"Acc {sttchay} Bị Chặn Tạo Pro5")
 			break
 		delay(dl);
-		
+quit()
