@@ -50,13 +50,13 @@ def cauhinh(idfb,tokentds,name,stt):
 	else:
 		print(run['error'])
 		quit()
-def get_page(cookie,fb_dtsg,jazoest,proxies):
+def get_page(cookie,fb_dtsg,jazoest,proxies,stt):
 	try:
 
 		Broxus=proxies
 		uid=cookie.split("c_user=")[1].split(';')[0]
 		a=requests.get(f"https://thanhlike.com/modun/tool/get_facebook.php?type=checklive&id={uid}").text
-		print(f"[T] > FB | {uid} | {a.upper()} | " ,end='')
+		print(f"[T] > FB : {stt} | {uid} | {a.upper()} | " ,end='')
 		headers = {
 			'authority': 'mbasic.facebook.com',
 			'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
@@ -164,6 +164,7 @@ ALLNAMEPRO5=[]
 ALLPROXY=[]
 ALLTN1=[]
 ALLTN2=[]
+stt=0
 for Input in Check_INPUT:
 	cookie=Input.split("|")[1]
 	proxy=Input.split("|")[0]
@@ -177,7 +178,8 @@ for Input in Check_INPUT:
 	choose = "http"
 	proxies = {"http": f"{choose}://{pr}" ,"https": f"{choose}://{pr}"}
 	try:
-		ao,Name,Broxy,fb_dtsg,jazoest=get_page(cookie,fb_dtsg,jazoest,proxies)
+		stt+=1
+		ao,Name,Broxy,fb_dtsg,jazoest=get_page(cookie,fb_dtsg,jazoest,proxies,stt)
 		for cookieLan1 in ao:
 			ALLCOOKIEPRO5.append(cookieLan1)
 		for Namez in Name:
