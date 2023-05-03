@@ -14,15 +14,23 @@ os.system('cls')
 os.system('clear')
 os.system('cls')
 exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/logo').text)
+randoms='T'+str(random.randint(1111111, 9999999))
+TAOKEY=requests.get("https://link1s.com/api?api=17862c85b769e67a13d395043c83ceef52392102&url="+f"https://sever.ngocbansub.com/key-tool.php?key={randoms}")
+if TAOKEY.json()['status'] == 'success':
+	Key1lan=TAOKEY.json()['shortenedUrl']
+print('[T] > Link Vượt Lấy Key Free : ',Key1lan)
 Keylist=requests.get('https://anotepad.com/notes/d5yc2frr').text.split('||||')[1].split('||||')[0]
 KEY=input("</> Điền KEY : ")
 if KEY in Keylist and len(KEY) >=10:
 	print('[T] > Loại Key Của Bạn Là Loại Thường')
 elif KEY == 'T':
 	pass
+elif KEY == randoms:
+	print('[T] > Loại Key Của Bạn Là Loại Frre Sử Dụng 1 Lần')
 else:
 	print("[T]> Sai Key")
 	quit()
+
 
 
 print(Colorate.Horizontal(Colors.blue_to_green ,'-----------------------------------\n <1> : Auto TDS Pro5 Đa Luồng\n <2> : Reg Pro5 Đa Luồng \n <3> : Auto TDS FB MaxSpeed (Key Vip) \n <4> : Auto TDS Pro5 MaxSpeed (Key Vip)\n-----------------------------------'))
