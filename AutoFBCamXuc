@@ -277,6 +277,7 @@ while True:
 						sttloi+=1
 						print(f"[T] > Lỗi {sttloi} JOB",end='\r')
 						if sttloi >= 15:
+							sttloi=0
 							idfb=Ck2.split('i_user=')[1].split(";")[0]
 							ALLINPUT.remove(ALLINPUT[XYZ])
 							print(f"[T] > ID :{idfb} Đã Bị Nhả Tương Tác Đã Xóa Bỏ Khỏi Danh Sách Chạy Còn : {len(ALLINPUT)} Pro5")
