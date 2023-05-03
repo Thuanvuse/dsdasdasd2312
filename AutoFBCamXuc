@@ -148,7 +148,7 @@ except:
 tk=GET_FILE_tds.split("|")[0]
 mk=GET_FILE_tds.split("|")[1]
 cktds,tokentds=GetTDS(tk,mk)
-stt=1
+stte=1
 Check_INPUT=[]
 sttloi=0
 try:
@@ -178,8 +178,8 @@ for Input in Check_INPUT:
 	choose = "http"
 	proxies = {"http": f"{choose}://{pr}" ,"https": f"{choose}://{pr}"}
 	try:
-		stt+=1
-		ao,Name,Broxy,fb_dtsg,jazoest=get_page(cookie,fb_dtsg,jazoest,proxies,stt)
+		stte+=1
+		ao,Name,Broxy,fb_dtsg,jazoest=get_page(cookie,fb_dtsg,jazoest,proxies,stte)
 		for cookieLan1 in ao:
 			ALLCOOKIEPRO5.append(cookieLan1)
 		for Namez in Name:
