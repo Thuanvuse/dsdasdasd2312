@@ -15,7 +15,11 @@ os.system('clear')
 os.system('cls')
 
 exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/logo').text)
-
+Cosduagko=int(input("[T]> Có Sử Dụng User-Agent (Ghi : 1 Có | 0 Không) : "))
+if Cosduagko == 1 :
+	uag=input("[T]> Điền User-Agent Của Bạn : ")
+else:
+	uag='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
 def GetTDS(tk,mk):
 	session = requests.Session()
 	rf_acc='https://traodoisub.com/view/cauhinh'
@@ -50,7 +54,7 @@ def cauhinh(idfb,tokentds,name,stt):
 	else:
 		print(run['error'])
 		quit()
-def get_page(cookie,fb_dtsg,jazoest,proxies,stt):
+def get_page(cookie,fb_dtsg,jazoest,proxies,stt,uag):
 	try:
 
 		Broxus=proxies
@@ -73,7 +77,7 @@ def get_page(cookie,fb_dtsg,jazoest,proxies,stt):
 			'sec-fetch-site': 'none',
 			'sec-fetch-user': '?1',
 			'upgrade-insecure-requests': '1',
-			'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+			'user-agent': uag,
 		}
 		idpef = requests.post('https://www.facebook.com/api/graphql/', headers=headers, data={'fb_dtsg': fb_dtsg,'jazoest': jazoest,'variables': '{"showUpdatedLaunchpointRedesign":true,"useAdminedPagesForActingAccount":false,"useNewPagesYouManage":true}','doc_id': '5300338636681652'}, proxies=proxies, timeout=20).json()
 		a = idpef['data']['viewer']['actor']['profile_switcher_eligible_profiles']['nodes']
@@ -90,7 +94,7 @@ def get_page(cookie,fb_dtsg,jazoest,proxies,stt):
 		print(f'Có : {len(Name)} Page')
 		return listcoolkie,Name,Broxus,fb_dtsg,jazoest
 	except:pass
-def reaction(fb_dtsg,jazoest,cookies,id_post,type,PRX):
+def reaction(fb_dtsg,jazoest,cookies,id_post,type,PRX,uag):
 	idfb=cookies.split('i_user=')[1].split(";")[0]
 	headers = {
 			'authority': 'www.facebook.com',
@@ -106,7 +110,7 @@ def reaction(fb_dtsg,jazoest,cookies,id_post,type,PRX):
 			'sec-fetch-site': 'none',
 			'sec-fetch-user': '?1',
 			'upgrade-insecure-requests': '1',
-			'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+			'user-agent': uag,
 			'viewport-width': '1366',
 		}
 	if type == 'LIKE':
@@ -148,7 +152,7 @@ except:
 tk=GET_FILE_tds.split("|")[0]
 mk=GET_FILE_tds.split("|")[1]
 cktds,tokentds=GetTDS(tk,mk)
-stte=1
+stt=1
 Check_INPUT=[]
 sttloi=0
 try:
@@ -164,7 +168,7 @@ ALLNAMEPRO5=[]
 ALLPROXY=[]
 ALLTN1=[]
 ALLTN2=[]
-stt=0
+stte=0
 for Input in Check_INPUT:
 	cookie=Input.split("|")[1]
 	proxy=Input.split("|")[0]
@@ -179,7 +183,7 @@ for Input in Check_INPUT:
 	proxies = {"http": f"{choose}://{pr}" ,"https": f"{choose}://{pr}"}
 	try:
 		stte+=1
-		ao,Name,Broxy,fb_dtsg,jazoest=get_page(cookie,fb_dtsg,jazoest,proxies,stte)
+		ao,Name,Broxy,fb_dtsg,jazoest=get_page(cookie,fb_dtsg,jazoest,proxies,stte,uag)
 		for cookieLan1 in ao:
 			ALLCOOKIEPRO5.append(cookieLan1)
 		for Namez in Name:
@@ -218,6 +222,10 @@ for hehe4 in ALLINPUT:
 print(f"=====================[ Bắt Đầu Chạy ]======================\n")
 loithidung=int(input("[T]> Nếu 1 Acc Die Có Dừng Tất Không (Ghi : 1 Dừng | 0 Chạy Tiếp) : "))
 
+
+
+
+
 while True:
 	if len(ALLINPUT) != 0:
 		for XYZ in range(len(ALLINPUT)):
@@ -229,7 +237,7 @@ while True:
 				jazoest=	ALLINPUT[XYZ].split("|")[4]
 				cauhinh(Ck2,tokentds,Na2,XYZ+1)
 				PRX=proxies.split("http': '")[1].split("', '")[0]
-				head_job={'Host':'traodoisub.com','accept':'application/json, text/javascript, */*; q=0.01','user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36','Cookie':cktds}
+				head_job={'Host':'traodoisub.com','accept':'application/json, text/javascript, */*; q=0.01','user-agent':uag,'Cookie':cktds}
 				try:
 					while True:
 						NhiemVu=requests.get(url='https://traodoisub.com/ex/likevip/load.php', headers=head_job, proxies={'http': PRX, 'https': PRX}, timeout=20)
@@ -243,7 +251,7 @@ while True:
 						id=x['id']
 						print(f"                                                      ",end='\r')
 						print(f"</> Đang Làm Job ID: {id} [LIKE 600 Xu] </>                         ",end='\r')
-						reaction(fb_dtsg,jazoest,Ck2,id,'LIKE',PRX)
+						reaction(fb_dtsg,jazoest,Ck2,id,'LIKE',PRX,uag)
 						print(f"<-> Đang Nhận Xu ID: {id} [LIKE 600 Xu] <->                         ",end='\r')
 						print(f"<\> Đang Nhận Xu ID: {id} [LIKE 600 Xu] <\>                         ",end='\r')
 						print(f"<|> Đang Nhận Xu ID: {id} [LIKE 600 Xu] <|>                         ",end='\r')
@@ -276,7 +284,7 @@ while True:
 					type=x['type']
 					print(f"                                                      ",end='\r')
 					print(f"</> Đang Làm Job ID: {id} [Cảm Xúc 400 Xu] </>                         ",end='\r')
-					reaction(fb_dtsg,jazoest,Ck2,id,type,PRX)
+					reaction(fb_dtsg,jazoest,Ck2,id,type,PRX,uag)
 					print(f"<-> Đang Nhận Xu ID: {id} [Cảm Xúc 400 Xu] <->                         ",end='\r')
 					print(f"<\> Đang Nhận Xu ID: {id} [Cảm Xúc 400 Xu] <\>                         ",end='\r')
 					print(f"<|> Đang Nhận Xu ID: {id} [Cảm Xúc 400 Xu] <|>                         ",end='\r')
