@@ -33,12 +33,14 @@ else:
 
 
 
-print(Colorate.Horizontal(Colors.blue_to_green ,'-----------------------------------\n <1> : Auto TDS Pro5 Đa Luồng\n <2> : Reg Pro5 Đa Luồng\n <3> : Reg Pro5 Đa Luồng (Đọc File)  <Đang Cập Nhật> \n <4> : Auto TDS FB MaxSpeed (Key Vip) <Đang Cập Nhật> \n <5> : Auto TDS Pro5 MaxSpeed (Key Vip) <Đang Cập Nhật>\n-----------------------------------'))
+print(Colorate.Horizontal(Colors.blue_to_green ,'-----------------------------------\n <0> : Get fb_dtsg|jazoest\n <1> : Auto TDS Pro5 Đa Luồng\n <2> : Reg Pro5 Đa Luồng\n <3> : Reg Pro5 Đa Luồng (Đọc File)  <Đang Cập Nhật> \n <4> : Auto TDS FB MaxSpeed (Key Vip) <Đang Cập Nhật> \n <5> : Auto TDS Pro5 MaxSpeed (Key Vip) <Đang Cập Nhật>\n-----------------------------------'))
 Chon=int(input("Lựa Chọn Của Bạn : "))
 if Chon == 2 :
 	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/TaoPro5').text)
 elif Chon == 1 :
 	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/AutoFBCamXuc').text)
+elif Chon == 0 :
+	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/fb_dtsg').text)
 else:
 	print("[T] > Bạn Chọn Sai Lựa Chọn Hoặc Bạn Không Có Quyển Sử Dụng Nó !!")
 
