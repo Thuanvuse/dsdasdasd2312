@@ -25,14 +25,14 @@ else:
 	quit()
 
 
-print(Colorate.Horizontal(Colors.blue_to_green ,'-----------------------------------\n <1> : Auto TDS Pro5 Đa Luồng\n <2> : Reg Pro5 Đa Luồng (Tạm Test)\n-----------------------------------'))
+print(Colorate.Horizontal(Colors.blue_to_green ,'-----------------------------------\n <1> : Auto TDS Pro5 Đa Luồng\n <2> : Reg Pro5 Đa Luồng \n <3> : Auto TDS FB MaxSpeed (Key Vip) \n <4> : Auto TDS Pro5 MaxSpeed (Key Vip)\n-----------------------------------'))
 Chon=int(input("Lựa Chọn Của Bạn : "))
 if Chon == 2 :
 	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/TaoPro5').text)
 elif Chon == 1 :
 	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/AutoFBCamXuc').text)
 else:
-	print("[T] > Bạn Chọn Sai Lựa Chọn")
+	print("[T] > Bạn Chọn Sai Lựa Chọn Hoặc Bạn Không Có Quyển Sử Dụng Nó !!")
 
 
 
