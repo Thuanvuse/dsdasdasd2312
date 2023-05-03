@@ -17,7 +17,7 @@ exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/log
 Keylist=requests.get('https://anotepad.com/notes/d5yc2frr').text.split('||||')[1].split('||||')[0]
 KEY=input("</> Điền KEY : ")
 if KEY in Keylist and len(KEY) >=10:
-	pass
+	print('[T] > Loại Key Của Bạn Là Loại Thường')
 elif KEY == 'T':
 	pass
 else:
