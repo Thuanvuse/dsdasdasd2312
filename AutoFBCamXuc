@@ -139,14 +139,20 @@ def reaction(fb_dtsg,jazoest,cookies,id_post,type,PRX):
 		return True
 	except:
 		return False
-GET_FILE_tds=open(f"TDS.txt").readline()
+try:
+	GET_FILE_tds=open(f"TDS.txt").readline()
+except:
+	print('[T] >  Bạn Thiếu Dữ Liệu Vào TỆP TDS.txt  Định Dạng  TK|MK')
 tk=GET_FILE_tds.split("|")[0]
 mk=GET_FILE_tds.split("|")[1]
 cktds,tokentds=GetTDS(tk,mk)
 stt=1
 Check_INPUT=[]
 sttloi=0
-GET_FILE=open(f"INPUT.txt").readlines()
+try:
+	GET_FILE=open(f"INPUT.txt").readlines()
+except:
+	print('[T] >  Bạn Thiếu Dữ Liệu Vào TỆP INPUT.txt  Định Dạng  Proxy|CookieFB chính|fb_dtsg|jazoest')
 for i in range(len(GET_FILE)):
 	a = GET_FILE[i].split('\n')[0]
 	Check_INPUT.append(a)
