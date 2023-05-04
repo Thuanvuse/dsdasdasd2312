@@ -60,8 +60,10 @@ for i in range(len(GET_FILE)):
 	a = GET_FILE[i].split('\n')[0]
 	Cookied.append(a)
 for ChoiLuon in Cookied:
-	proxy=ChoiLuon.split("|")[0]
-	cookiefb=ChoiLuon.split("|")[1]
-	fb_dtsg,jazoest=tzg(cookiefb,proxy,uag)
-	print(f'{proxy}|{cookiefb}|{fb_dtsg}|{jazoest}')
-
+	try:
+		proxy=ChoiLuon.split("|")[0]
+		cookiefb=ChoiLuon.split("|")[1]
+		fb_dtsg,jazoest=tzg(cookiefb,proxy,uag)
+		print(f'{proxy}|{cookiefb}|{fb_dtsg}|{jazoest}')
+	except:
+		print('Lỗi Lỗi ')
