@@ -18,7 +18,7 @@ exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/log
 Cosduagko=int(input("[T]> Có Sử Dụng User-Agent (Ghi : 1 Có | 0 Không) : "))
 if Cosduagko == 1 :
 	uag=input("[T]> Điền User-Agent Của Bạn : ")
-else:
+elif Cosduagko == 0:
 	uag='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
 def GetTDS(tk,mk):
 	session = requests.Session()
