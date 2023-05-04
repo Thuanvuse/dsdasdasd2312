@@ -18,5 +18,7 @@ print(Colorate.Horizontal(Colors.blue_to_green ,f'''
 									MB Bank : 8829032006 (Đúng Số AE Tránh Bị Lừa)
 									Nhận Làm Tool Theo Yêu Cầu Giá Siêu Rẻ !
 									Bản v1.3.0 - Cập Nhật 12h10p 3/5/2023
+									
+									
 
 '''))
