@@ -13,7 +13,7 @@ from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 os.system('cls')
 os.system('clear')
 os.system('cls')
-exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/logo').text)
+exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/dsdasdasd2312/main/logo').text)
 randoms='T'+str(random.randint(1111111, 9999999))
 TAOKEY=requests.get("https://link1s.com/api?api=17862c85b769e67a13d395043c83ceef52392102&url="+f"https://sever.ngocbansub.com/key-tool.php?key={randoms}")
 if TAOKEY.json()['status'] == 'success':
@@ -36,11 +36,11 @@ else:
 print(Colorate.Horizontal(Colors.blue_to_green ,'-----------------------------------\n <0> : Get fb_dtsg|jazoest\n <1> : Auto TDS Pro5 Đa Luồng\n <2> : Reg Pro5 Đa Luồng\n <3> : Reg Pro5 Đa Luồng (Đọc File)  <Đang Cập Nhật> \n <4> : Auto TDS FB MaxSpeed (Key Vip) <Đang Cập Nhật> \n <5> : Auto TDS Pro5 MaxSpeed (Key Vip) <Đang Cập Nhật>\n-----------------------------------'))
 Chon=int(input("Lựa Chọn Của Bạn : "))
 if Chon == 2 :
-	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/RegPagePro5').text)
+	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/dsdasdasd2312/main/RegPagePro5').text)
 elif Chon == 1 :
-	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/AutoFBCamXuc').text)
+	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/dsdasdasd2312/main/AutoFBCamXuc').text)
 elif Chon == 0 :
-	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/filecode/main/fb_dtsg').text)
+	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/dsdasdasd2312/main/fb_dtsg').text)
 else:
 	print("[T] > Bạn Chọn Sai Lựa Chọn Hoặc Bạn Không Có Quyển Sử Dụng Nó !!")
 
