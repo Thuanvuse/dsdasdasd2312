@@ -183,7 +183,7 @@ for Text in ListALL:
 			lot1 = random.choice(arraylot1)
 			lot2 = random.choice(arraylot2)
 			ten = random.choice(arrayten)
-			name = str(lot2+' 'lot1+' 'lot+' '+ten)
+			name = str(lot2+' '+lot1+' '+lot+' '+ten)
 			dem = dem+1
 			cookiesPro5,fb_dtsgPro5=Reg(cookiesFB,fb_dtsgFB,name,proxy)
 			idpro5=cookiesPro5.split('i_user=')[1].split(";")[0]
