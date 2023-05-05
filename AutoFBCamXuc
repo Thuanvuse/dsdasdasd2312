@@ -275,9 +275,12 @@ while True:
 				while True:
 					NhiemVu=requests.get(url='https://traodoisub.com/ex/reaction/load.php', headers=head_job, proxies={'http': PRX, 'https': PRX}, timeout=20)
 					if 'error' in NhiemVu.json() and 'countdown' in NhiemVu.json():
-						countdown=int(NhiemVu.json()['countdown'])+3
-						print(f'Countdown [Cảm Xúc]: {countdown}',end='\r')
-						sleep(countdown)
+						if int(NhiemVu.json()['countdown'])+3 <= 10 :
+							countdown=int(NhiemVu.json()['countdown'])+3
+							print(f'Countdown [Cảm Xúc]: {countdown}',end='\r')
+							sleep(countdown)
+						else:
+							break
 					else :
 						break
 				for x in NhiemVu.json()['data']:
