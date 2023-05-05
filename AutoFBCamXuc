@@ -31,7 +31,7 @@ def GetTDS(tk,mk):
 	}
 	log=session.post(url='https://traodoisub.com/scr/login.php', headers=head_login, data=data_login).text
 	if "success" in log:
-		print(f'\nĐăng Nhập TDS Thành Công ({tk})')
+		print(f'TDS : {tk} ',end='')
 	else:
 		print('Đăng Nhập Thất Bại1')
 	sleep(0.2)
@@ -235,6 +235,7 @@ while True:
 				proxies=ALLINPUT[XYZ].split("|")[2]
 				fb_dtsg=ALLINPUT[XYZ].split("|")[3]
 				jazoest=	ALLINPUT[XYZ].split("|")[4]
+				cktds,tokentds=GetTDS(tk,mk)
 				cauhinh(Ck2,tokentds,Na2,XYZ+1)
 				PRX=proxies.split("http': '")[1].split("', '")[0]
 				head_job={'Host':'traodoisub.com','accept':'application/json, text/javascript, */*; q=0.01','user-agent':uag,'Cookie':cktds}
