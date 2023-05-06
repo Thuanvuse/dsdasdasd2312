@@ -218,8 +218,7 @@ for hehe4 in ALLINPUT:
 	Ck1=hehe4.split("|")[0]
 	Na1=hehe4.split("|")[1]
 	Id1=Ck1.split('i_user=')[1].split(";")[0]
-	IDZ=Ck1.split('c_user=')[1].split(";")[0]
-	print(f' > PAGE : {stthehe4} | ID : {Id1} | Name : {Na1} (IDFB:{IDZ})')
+	print(f' > PAGE : {stthehe4} | ID : {Id1} | Name : {Na1}')
 print(f"=====================[ Bắt Đầu Chạy ]======================\n")
 loithidung=int(input("[T]> Nếu 1 Acc Die Có Dừng Tất Không (Ghi : 1 Dừng | 0 Chạy Tiếp) : "))
 
@@ -245,7 +244,7 @@ while True:
 						NhiemVu=requests.get(url='https://traodoisub.com/ex/likevip/load.php', headers=head_job, proxies={'http': PRX, 'https': PRX}, timeout=20)
 						if 'error' in NhiemVu.json() and 'countdown' in NhiemVu.json():
 							countdown=int(NhiemVu.json()['countdown'])+3
-							print(f'Countdown [LIKE Vip]: {countdown}',end='\r')
+							print(f'Countdown [LIKE 600]: {countdown}',end='\r')
 							sleep(countdown)
 						else :
 							break
@@ -276,12 +275,10 @@ while True:
 				while True:
 					NhiemVu=requests.get(url='https://traodoisub.com/ex/reaction/load.php', headers=head_job, proxies={'http': PRX, 'https': PRX}, timeout=20)
 					if 'error' in NhiemVu.json() and 'countdown' in NhiemVu.json():
-						if int(NhiemVu.json()['countdown'])+3 <= 10 :
-							countdown=int(NhiemVu.json()['countdown'])+3
-							print(f'Countdown [Cảm Xúc]: {countdown}',end='\r')
-							sleep(countdown)
-						else:
-							break
+						countdown=int(NhiemVu.json()['countdown'])+3
+						print(f'Countdown [Cảm Xúc]: {countdown}',end='\r')
+						sleep(countdown)
+						
 					else :
 						break
 				for x in NhiemVu.json()['data']:
