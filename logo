@@ -17,7 +17,7 @@ print(Colorate.Horizontal(Colors.blue_to_green ,f'''
 									KEY     : Inbox Trực Tiếp Để Gia Hạn Key
 									MB Bank : 8829032006 (Đúng Số AE Tránh Bị Lừa)
 									Nhận Làm Tool Theo Yêu Cầu Giá Siêu Rẻ !
-									Mẹo : Nếu Lỗi Hãy Thay User-Agent Khác !!
+									Mẹo : Nếu Lỗi Cookie die mà check vẫn sống Hãy Thay User-Agent Khác !!
 																											
 '''))
 print('Bản v2.0.1 - Cập Nhật 21h21p 6/5/2023')
