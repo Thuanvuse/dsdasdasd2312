@@ -19,11 +19,14 @@ TAOKEY=requests.get("https://link1s.com/api?api=17862c85b769e67a13d395043c83ceef
 if TAOKEY.json()['status'] == 'success':
 	Key1lan=TAOKEY.json()['shortenedUrl']
 print('[T] > Link Vượt Lấy Key Free : ',Key1lan)
-Keylist=requests.get('https://anotepad.com/notes/d5yc2frr').text.split('||||')[1].split('||||')[0]
+Keylist=requests.get('https://raw.githubusercontent.com/Thuanvuse/ALiBaBoXu/main/.gitignore').text
+Keylista=json.loads(Keylist)
+print(Keylista)
 KEY=input("</> Điền KEY : ")
 if KEY in Keylist and len(KEY) >=10:
 	print('[T] > Loại Key Của Bạn Là Loại Thường')
-elif KEY == 'T':
+	print(f"<|> Ngày Tạo : ",Keylista[KEY]['n1'],'Hết Hạn Vào : ',Keylista[KEY]['n2'],'<|>')
+elif KEY == '?':
 	pass
 elif KEY == randoms:
 	print('[T] > Loại Key Của Bạn Là Loại Frre Sử Dụng 1 Lần')
