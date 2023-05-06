@@ -218,7 +218,8 @@ for hehe4 in ALLINPUT:
 	Ck1=hehe4.split("|")[0]
 	Na1=hehe4.split("|")[1]
 	Id1=Ck1.split('i_user=')[1].split(";")[0]
-	print(f' > PAGE : {stthehe4} | ID : {Id1} | Name : {Na1}')
+	IDZ=Ck1.split('c_user=')[1].split(";")[0]
+	print(f' > PAGE : {stthehe4} | ID : {Id1} | Name : {Na1} (IDFB:{IDZ})')
 print(f"=====================[ Bắt Đầu Chạy ]======================\n")
 loithidung=int(input("[T]> Nếu 1 Acc Die Có Dừng Tất Không (Ghi : 1 Dừng | 0 Chạy Tiếp) : "))
 
