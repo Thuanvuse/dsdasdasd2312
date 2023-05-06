@@ -97,7 +97,7 @@ def get_page(cookie,fb_dtsg,jazoest,proxies,stt,uag):
 def reaction(fb_dtsg,jazoest,cookies,id_post,type,PRX,uag):
 	idfb=cookies.split('i_user=')[1].split(";")[0]
 	headers = {
-			'authority': 'www.facebook.com',
+			'authority': 'mbasic.facebook.com',
 			'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
 			'accept-language': 'vi',
 			'cookie': cookies,
@@ -128,7 +128,7 @@ def reaction(fb_dtsg,jazoest,cookies,id_post,type,PRX,uag):
 	elif type ==  'ANGRY':
 		reac = '444813342392137'
 	try:
-		url = requests.get('https://www.facebook.com/'+id_post, headers=headers, proxies={'http': PRX, 'https': PRX}, timeout=20).url
+		url = requests.get('https://mbasic.facebook.com/'+id_post, headers=headers, proxies={'http': PRX, 'https': PRX}, timeout=20).url
 		home = requests.get(url, headers=headers).text
 		feedback_id = home.split('{"__typename":"CommentComposerLiveTypingBroadcastPlugin","feedback_id":"')[1].split('","')[0]
 		data = {
@@ -140,7 +140,7 @@ def reaction(fb_dtsg,jazoest,cookies,id_post,type,PRX,uag):
 			'server_timestamps': 'true',
 			'doc_id': '5703418209680126',
 		}
-		reaction = requests.post('https://www.facebook.com/api/graphql/', headers=headers, data=data, proxies={'http': PRX, 'https': PRX}, timeout=20).text
+		reaction = requests.post('https://mbasic.facebook.com/api/graphql/', headers=headers, data=data, proxies={'http': PRX, 'https': PRX}, timeout=20).text
 		return True
 	except:
 		return False
