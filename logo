@@ -19,4 +19,4 @@ print(Colorate.Horizontal(Colors.blue_to_green ,f'''
 									Nhận Làm Tool Theo Yêu Cầu Giá Siêu Rẻ !
 																											
 '''))
-print('Bản v2.0.0 - Cập Nhật 14h07p 6/5/2023')
+print('Bản v2.0.1 - Cập Nhật 21h21p 6/5/2023')
