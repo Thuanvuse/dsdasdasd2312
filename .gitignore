@@ -21,7 +21,7 @@ if TAOKEY.json()['status'] == 'success':
 print('[T] > Link Vượt Lấy Key Free : ',Key1lan)
 Keylist=requests.get('https://raw.githubusercontent.com/Thuanvuse/ALiBaBoXu/main/.gitignore').text
 Keylista=json.loads(Keylist)
-print(Keylista)
+
 KEY=input("</> Điền KEY : ")
 if KEY in Keylist and len(KEY) >=10:
 	print('[T] > Loại Key Của Bạn Là Loại Thường')
