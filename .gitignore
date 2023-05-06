@@ -23,7 +23,7 @@ Keylist=requests.get('https://anotepad.com/notes/d5yc2frr').text.split('||||')[1
 KEY=input("</> Điền KEY : ")
 if KEY in Keylist and len(KEY) >=10:
 	print('[T] > Loại Key Của Bạn Là Loại Thường')
-elif KEY == 'T':
+elif KEY == '6':
 	pass
 elif KEY == randoms:
 	print('[T] > Loại Key Của Bạn Là Loại Frre Sử Dụng 1 Lần')
