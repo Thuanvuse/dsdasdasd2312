@@ -233,8 +233,8 @@ for hehe4 in ALLINPUT:
 print(f"=====================[ Bắt Đầu Chạy ]======================\n")
 while True:
 	if len(ALLINPUT) != 0:
-		try:
-			for XYZ in range(len(ALLINPUT)):
+		for XYZ in range(len(ALLINPUT)):
+			try:
 				Ck2=ALLINPUT[XYZ].split("|")[0]
 				Na2=ALLINPUT[XYZ].split("|")[1]
 				proxies=ALLINPUT[XYZ].split("|")[2]
@@ -311,9 +311,9 @@ while True:
 								break
 					delayss(NghiNgoi)
 				except:pass
-		except:
+			except:
+				if sttloi >= 15:break
 			if sttloi >= 15:break
-		if sttloi >= 15:break
 	if sttloi >= 15 and loithidung == 1:break
 else:
 	print("=====================================================")
