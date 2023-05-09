@@ -246,38 +246,7 @@ if proxuSD == 1:
 					cauhinh(Ck2,tokentds,Na2,XYZ+1)
 					PRX=proxies.split("http': '")[1].split("', '")[0]
 					head_job={'Host':'traodoisub.com','accept':'application/json, text/javascript, */*; q=0.01','user-agent':uag,'Cookie':cktds}
-					try:
-						while True:
-							NhiemVu=requests.get(url='https://traodoisub.com/ex/likevip/load.php', headers=head_job, proxies={'http': PRX, 'https': PRX}, timeout=20)
-							if 'error' in NhiemVu.json() and 'countdown' in NhiemVu.json():
-								countdown=int(NhiemVu.json()['countdown'])+3
-								print(f'Countdown [LIKE 600]: {countdown}',end='\r')
-								sleep(countdown)
-							else :
-								break
-						for x in NhiemVu.json()['data']:
-							id=x['id']
-							print(f"                                                      ",end='\r')
-							print(f"</> Đang Làm Job ID: {id} [LIKE 600 Xu] </>                         ",end='\r')
-							reaction(fb_dtsg,jazoest,Ck2,id,'LIKE',PRX,uag)
-							print(f"<-> Đang Nhận Xu ID: {id} [LIKE 600 Xu] <->                         ",end='\r')
-							NhanXu=requests.post(f'https://traodoisub.com/ex/likevip/nhantien.php',headers=head_job,data={'id': id,'type': 'like'}).text
-							if NhanXu == "2":
-								sttloi=0
-								XuDaLam+=600
-								Thongtin=requests.get(f'https://traodoisub.com/api/?fields=profile&access_token={tokentds}').json()['data']['xu']
-								print(stt,Colorate.Horizontal(Colors.green_to_cyan,datetime.now().strftime(f'[%Y/%m/%d - %H:%M:%S] --> Thành Công | +600 Xu | {Thongtin} Xu | LIKE 600 | {XuDaLam} Xu ')))
-								stt+=1
-								delays(delaymoijob)
-							else:
-								sttloi+=1
-								print(f"[T] > Lỗi {sttloi} JOB",end='\r')
-								if sttloi >= 15:
-									idfb=Ck2.split('i_user=')[1].split(";")[0]
-									ALLINPUT.remove(ALLINPUT[XYZ])
-									print(f"[T] > ID :{idfb} Đã Bị Nhả Tương Tác Đã Xóa Bỏ Khỏi Danh Sách Chạy Còn : {len(ALLINPUT)} Pro5")
-									break
-					except:pass
+					
 					try:
 						while True:
 							NhiemVu=requests.get(url='https://traodoisub.com/ex/reaction/load.php', headers=head_job, proxies={'http': PRX, 'https': PRX}, timeout=20)
