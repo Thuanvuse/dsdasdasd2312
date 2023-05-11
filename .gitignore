@@ -42,7 +42,13 @@ Chon=int(input("Lựa Chọn Của Bạn : "))
 if Chon == 2 :
 	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/dsdasdasd2312/main/RegPagePro5').text)
 elif Chon == 1 :
-	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/dsdasdasd2312/main/AutoFBCamXuc').text)
+	chons=int(input('[T]> Bạn Muốn Chạy TDS PR5 V1 Hay V2 (Chọn 1|2) : '))
+	if chons == 1:
+		exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/dsdasdasd2312/main/AutoFBCamXuc').text)
+	elif chons == 2:
+		exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/dsdasdasd2312/main/tdsv2').text)
+	else:
+		print('[T]> Bạn Chọn Sai Lựa Chọn')
 elif Chon == 0 :
 	exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/dsdasdasd2312/main/fb_dtsg').text)
 else:
