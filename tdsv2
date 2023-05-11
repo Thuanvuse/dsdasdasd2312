@@ -11,7 +11,15 @@ from threading import Thread
 import uuid
 from datetime import datetime
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
-
+print('''
+[*] Lưu ý 
+> Bản V2 này Bạn Cần Tạo 1 Tệp Tên 'FB.txt' Để Tool Lấy Thông tin acc
+> Vẫn Sử Dụng 'TDS.txt' Để Đăng Nhập TraoDoiSub.Com 
+> Định Dạng :
+	+ Nếu Dùng Proxy : proxy|Cookie (Mỗi Dòng Là Một FB)
+	+ Không Sử Dụng Proxy : Cookie  (Mỗi Dòng Là Một FB)
+<Đây Là Bản Thử Nghiệp Nên Chắc Còn Nhiều lỗi Bạn Thông Cảm>
+''')
 
 
 def reaction(fb_dtsg,cookies,id_post,type,proxy):
@@ -246,7 +254,14 @@ def get_page(cookie,fb_dtsg,proxy,stt):
 		print(f'Có : {len(Name)} Page')
 		return listcoolkie,Name,proxy,fb_dtsg
 	except:pass
-cktds,tokentds=GetTDS('THUAN_TDS_SELL6','t29032006')
+try:
+	GET_FILE_tds=open(f"TDS.txt").readline()
+except:
+	print('[T] >  Bạn Thiếu Dữ Liệu Vào TỆP TDS.txt  Định Dạng  TK|MK')
+	quit()
+tk=GET_FILE_tds.split("|")[0]
+mk=GET_FILE_tds.split("|")[1]
+cktds,tokentds=GetTDS(tk,mk)
 print("")
 #=========================[Các Biến]===============================
 listchucnang=[]
