@@ -270,9 +270,14 @@ stt=0
 sttloi=0
 head_job={'Host':'traodoisub.com','accept':'application/json, text/javascript, */*; q=0.01','Cookie':cktds}
 Cookied=[]
-GET_FILE=open(f"FB.txt").readlines()
-for i in range(len(GET_FILE)):
-	a = GET_FILE[i].split('\n')[0]
+try:
+	GET_FILEs=open(f"FB.txt").readlines()
+except:
+	print('[T] >  Bạn Thiếu Dữ Liệu Vào TỆP FB.txt')
+	quit()
+
+for i in range(len(GET_FILEs)):
+	a = GET_FILEs[i].split('\n')[0]
 	Cookied.append(a)
 #=========================[Các Biến]===============================
 stt444=0
