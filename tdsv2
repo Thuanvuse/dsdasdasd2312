@@ -318,79 +318,83 @@ if len(listchucnang) == 0:
 	quit()
 while True:
 	for thuan in ALLCOOKIE:
-		try:
-			cookies=thuan.split('|')[0]
-			NAME=thuan.split('|')[1]
-			proxy=thuan.split('|')[2]
-			fb_z=thuan.split('|')[3]
-			cauhinh(cookies,tokentds)
-			if 'cx' in listchucnang:
-				sttloi=0
-				while True:
-					NhiemVu=requests.get(url='https://traodoisub.com/ex/reaction/load.php', headers=head_job)
-					if 'error' in NhiemVu.json() and 'countdown' in NhiemVu.json() and int(NhiemVu.json()['countdown']) >= 50:
-						print("[T]> TDS Đã Hết Job cx!")
-						listchucnang.remove('cx')
-						break
-					if 'error' in NhiemVu.json() and 'countdown' in NhiemVu.json():
-						countdown=int(NhiemVu.json()['countdown'])+3
-						Delays(countdown,'Lấy Job cx')
-					else :
-						break
-				for x in NhiemVu.json()['data']:
-					id=x['id']
-					type=x['type']
-					print(f"Đang Làm Job cx ID :{id}                        ",end='\r')
-					reaction(fb_z,cookies,id,type,proxy)
-					print('Đang Nhận XU                                             ',end='\r')
-					NhanXu=requests.post(f'https://traodoisub.com/ex/reaction/nhantien.php',headers=head_job,data={'id': id,'type': type}).text
-					if NhanXu == "2":
-						sttloi=0
-						XuDaLam+=400
-						stt+=1
-						Thongtin=requests.get(f'https://traodoisub.com/api/?fields=profile&access_token={tokentds}').json()['data']['xu']
-						print(stt,Colorate.Horizontal(Colors.green_to_cyan,datetime.now().strftime(f'[%Y/%m/%d - %H:%M:%S] --> Thành Công | +400 Xu | {Thongtin} Xu | {type} | {XuDaLam} Xu ')))
-					else:
-						sttloi+=1
-						if sttloi >= 15:
-							ALLCOOKIE.remove(thuan)
-							print(Colorate.Horizontal(Colors.blue_to_red,"[T] > Đã Bị Chặn Cảm Xúc Đã Xóa Acc khỏi Đợi Chạy Này"))
+		if len(ALLCOOKIE) == 0:
+			print("[T]> Đã Bị chặn Tắt cả các Acc FB")
+		else:
+			try:
+				cookies=thuan.split('|')[0]
+				NAME=thuan.split('|')[1]
+				proxy=thuan.split('|')[2]
+				fb_z=thuan.split('|')[3]
+				cauhinh(cookies,tokentds)
+				if 'cx' in listchucnang:
+					sttloi=0
+					while True:
+						NhiemVu=requests.get(url='https://traodoisub.com/ex/reaction/load.php', headers=head_job)
+						if 'error' in NhiemVu.json() and 'countdown' in NhiemVu.json() and int(NhiemVu.json()['countdown']) >= 50:
+							print("[T]> TDS Đã Hết Job cx!")
+							listchucnang.remove('cx')
 							break
-						print(f"[T] > Lỗi JOB",end='\r')
-					Delays(delaylaylay,'Nghĩ Mỗi Job')
-				if sttloi >= 15:break
-			if 'likepage' in listchucnang:
-				sttloi=0
-				while True:
-					NhiemVu=requests.get(url='https://traodoisub.com/ex/fanpage/load.php', headers=head_job)
-					if 'error' in NhiemVu.json() and 'countdown' in NhiemVu.json() and int(NhiemVu.json()['countdown']) >= 50:
-						print("[T]> TDS Đã Hết Job LikePage!")
-						listchucnang.remove('likepage')
-						break
-					if 'error' in NhiemVu.json() and 'countdown' in NhiemVu.json():
-						countdown=int(NhiemVu.json()['countdown'])+3
-						Delays(countdown,'Lấy Job LikePage')
-					else :
-						break
-				for x in NhiemVu.json()['data']:
-					id=x['id']
-					print(f"Đang Làm Job LikePage ID :{id}                        ",end='\r')
-					likepage(cookies,fb_z,id)
-					print('Đang Nhận XU                                             ',end='\r')
-					NhanXu=requests.post(f'https://traodoisub.com/ex/fanpage/nhantien.php',headers=head_job,data={'id': id,'type': type}).text
-					if NhanXu == "2":
-						sttloi=0
-						XuDaLam+=900
-						stt+=1
-						Thongtin=requests.get(f'https://traodoisub.com/api/?fields=profile&access_token={tokentds}').json()['data']['xu']
-						print(stt,Colorate.Horizontal(Colors.green_to_cyan,datetime.now().strftime(f'[%Y/%m/%d - %H:%M:%S] --> Thành Công | +900 Xu | {Thongtin} Xu | Like Page | {XuDaLam} Xu ')))
-					else:
-						sttloi+=1
-						if sttloi >= 5:
+						if 'error' in NhiemVu.json() and 'countdown' in NhiemVu.json():
+							countdown=int(NhiemVu.json()['countdown'])+3
+							Delays(countdown,'Lấy Job cx')
+						else :
 							break
-						print(f"[T] > Lỗi JOB",end='\r')
-					Delays(delaylaylay,'Nghĩ Mỗi Job')
-				if sttloi >= 5:break
-		except:pass
-
+					for x in NhiemVu.json()['data']:
+						id=x['id']
+						type=x['type']
+						print(f"Đang Làm Job cx ID :{id}                        ",end='\r')
+						reaction(fb_z,cookies,id,type,proxy)
+						print('Đang Nhận XU                                             ',end='\r')
+						NhanXu=requests.post(f'https://traodoisub.com/ex/reaction/nhantien.php',headers=head_job,data={'id': id,'type': type}).text
+						if NhanXu == "2":
+							sttloi=0
+							XuDaLam+=400
+							stt+=1
+							Thongtin=requests.get(f'https://traodoisub.com/api/?fields=profile&access_token={tokentds}').json()['data']['xu']
+							print(stt,Colorate.Horizontal(Colors.green_to_cyan,datetime.now().strftime(f'[%Y/%m/%d - %H:%M:%S] --> Thành Công | +400 Xu | {Thongtin} Xu | {type} | {XuDaLam} Xu ')))
+						else:
+							sttloi+=1
+							if sttloi >= 15:
+								ALLCOOKIE.remove(thuan)
+								print(Colorate.Horizontal(Colors.blue_to_red,"[T] > Đã Bị Chặn Cảm Xúc Đã Xóa Acc khỏi Đợi Chạy Này"))
+								break
+							print(f"[T] > Lỗi JOB",end='\r')
+						Delays(delaylaylay,'Nghĩ Mỗi Job')
+					if sttloi >= 15:break
+				if 'likepage' in listchucnang:
+					sttloi=0
+					while True:
+						NhiemVu=requests.get(url='https://traodoisub.com/ex/fanpage/load.php', headers=head_job)
+						if 'error' in NhiemVu.json() and 'countdown' in NhiemVu.json() and int(NhiemVu.json()['countdown']) >= 50:
+							print("[T]> TDS Đã Hết Job LikePage!")
+							listchucnang.remove('likepage')
+							break
+						if 'error' in NhiemVu.json() and 'countdown' in NhiemVu.json():
+							countdown=int(NhiemVu.json()['countdown'])+3
+							Delays(countdown,'Lấy Job LikePage')
+						else :
+							break
+					for x in NhiemVu.json()['data']:
+						id=x['id']
+						print(f"Đang Làm Job LikePage ID :{id}                        ",end='\r')
+						likepage(cookies,fb_z,id)
+						print('Đang Nhận XU                                             ',end='\r')
+						NhanXu=requests.post(f'https://traodoisub.com/ex/fanpage/nhantien.php',headers=head_job,data={'id': id,'type': type}).text
+						if NhanXu == "2":
+							sttloi=0
+							XuDaLam+=900
+							stt+=1
+							Thongtin=requests.get(f'https://traodoisub.com/api/?fields=profile&access_token={tokentds}').json()['data']['xu']
+							print(stt,Colorate.Horizontal(Colors.green_to_cyan,datetime.now().strftime(f'[%Y/%m/%d - %H:%M:%S] --> Thành Công | +900 Xu | {Thongtin} Xu | Like Page | {XuDaLam} Xu ')))
+						else:
+							sttloi+=1
+							if sttloi >= 5:
+								ALLCOOKIE.remove(thuan)
+								print(Colorate.Horizontal(Colors.blue_to_red,"[T] > Đã Bị Chặn LikePage Đã Xóa Acc khỏi Đợi Chạy Này"))
+								break
+							print(f"[T] > Lỗi JOB",end='\r')
+						Delays(delaylaylay,'Nghĩ Mỗi Job')
+					if sttloi >= 5:break
+			except:pass
 
