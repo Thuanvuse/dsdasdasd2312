@@ -2,6 +2,5 @@
 import requests
 GET_FILE_tds=open(f"TDS.txt").readline().replace('|','_')
 TAOKEY=requests.get("https://link1s.com/api?api=17862c85b769e67a13d395043c83ceef52392102&url="+f"https://sever.ngocbansub.com/key-tool.php?key={GET_FILE_tds}").text
-print(TAOKEY)
 print('[ADMIN]> Đây là Bản Lậu Bị Tuồn RA Ae Muốn chạy Bản Ngon Vô Box Zalo : https://zalo.me/g/fjlslx723')
 quit()
