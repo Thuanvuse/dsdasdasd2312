@@ -1,33 +1,4 @@
-#fuck
-import requests
-import os, sys, json, re
-from time import sleep
-session = requests.Session()
-import os, sys, re, json
-from time import sleep
-import random
-from datetime import datetime
-import requests
-import uuid
-from datetime import datetime
-from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
-os.system('cls')
-os.system('clear')
-os.system('cls')
-exec(requests.get('https://raw.githubusercontent.com/Thuanvuse/dsdasdasd2312/main/logo').text)
-randoms='T'+str(random.randint(1111111, 9999999))
-TAOKEY=requests.get("https://link1s.com/api?api=17862c85b769e67a13d395043c83ceef52392102&url="+f"https://sever.ngocbansub.com/key-tool.php?key={randoms}")
-if TAOKEY.json()['status'] == 'success':
-	Key1lan=TAOKEY.json()['shortenedUrl']
-print('[T] > Link Vượt Lấy Key Free : ',Key1lan)
-Keylist=requests.get('https://raw.githubusercontent.com/Thuanvuse/ALiBaBoXu/main/.gitignore').text
-Keylista=json.loads(Keylist)
 
-KEY=input("</> Điền KEY : ")
-if KEY in Keylist and len(KEY) >=10:
-	print('[T] > Loại Key Của Bạn Là Loại Thường')
-	print(f"<|> Ngày Tạo : ",Keylista[KEY]['n1'],'Hết Hạn Vào : ',Keylista[KEY]['n2'],'<|>')
-elif KEY == '?':
 	pass
 elif KEY == randoms:
 	print('[T] > Loại Key Của Bạn Là Loại Frre Sử Dụng 1 Lần')
